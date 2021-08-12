@@ -119,6 +119,7 @@ module.exports = function (args, contents) {
             element: document.getElementById(${JSON.stringify(targetID)}),
             playlist: ${JSON.stringify(resPlaylist)},
             generateBeforeElement: false,
+            volume: 0.5,
             deleteElementAfterGenerate: false,
             autoplay: ${JSON.stringify(autoplay)},
             zoomOutKana: true,
