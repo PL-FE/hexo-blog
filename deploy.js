@@ -2,11 +2,11 @@ const { deploy } = require('sftp-sync-deploy')
 const { HOST: host, PASSWORD: password, REMOTEDIR: remoteDir } = process.env
 
 let config = {
-  host: '112.124.101.127', // Required.
+  host, // Required.
   username: 'root', // Required.
-  password: 'Wowo624151713', // Optional.
+  password, // Optional.
   localDir: './public', // Required, Absolute or relative to cwd.
-  remoteDir: '/www/wwwroot/music.pl-fe.cn', // Required, Absolute path only.
+  remoteDir, // Required, Absolute path only.
 }
 
 let options = {
