@@ -1,15 +1,15 @@
-const utils = require('utility');
-const cson = require('cson');
-const scriptID = 'cplayer-script';
-const yaml = require('js-yaml');
-require('isomorphic-fetch');
+const utils = require("utility");
+const cson = require("cson");
+const scriptID = "cplayer-script";
+const yaml = require("js-yaml");
+require("isomorphic-fetch");
 
 module.exports = function (args, contents) {
   let autoplay = false;
 
-  let targetID = 'cplayer-' + utils.randomString(8, '1234567890');
+  let targetID = "cplayer-" + utils.randomString(8, "1234567890");
 
-  let parser = 'yaml'
+  let parser = "yaml";
 
   args.forEach((arg) => {
     switch (arg.trim()) {
@@ -17,38 +17,38 @@ module.exports = function (args, contents) {
         autoplay = true;
         break;
       case "yaml":
-        parser = 'yaml';
+        parser = "yaml";
         break;
       case "cson":
-        parser = 'cson';
+        parser = "cson";
         break;
       case "json":
-        parser = 'json';
+        parser = "json";
         break;
       default:
         break;
     }
-  })
+  });
 
-  function parse (content, parser) {
+  function parse(content, parser) {
     switch (parser) {
-      case 'json':
+      case "json":
         return JSON.parse(content);
-      case 'cson':
+      case "cson":
         return cson.parse(content);
-      case 'yaml':
-        return yaml.load(content)
+      case "yaml":
+        return yaml.load(content);
     }
   }
 
   let playlist = parse(contents, parser);
 
-  let resPlaylist = [{ name: 'loading...', artist: 'loading...' }];
+  let resPlaylist = [{ name: "loading...", artist: "loading..." }];
   let add163 = [];
 
   playlist = playlist.forEach(function (v) {
     switch (typeof v) {
-      case 'number':
+      case "number":
         add163.push(v);
         break;
       default:
@@ -92,26 +92,26 @@ module.exports = function (args, contents) {
 
         function loadcplayer() {
           if (typeof window.cplayerList === 'undefined') window.cplayerList = {};
-          if (typeof window.cplayerList[${JSON.stringify(targetID)}] !== 'undefined') return;
+          if (typeof window.cplayerList[${JSON.stringify(
+            targetID
+          )}] !== 'undefined') return;
           if (!cplayer.prototype.add163) cplayer.prototype.add163 = async function add163(id) {
             if (!id) throw new Error("Unable Property.");
             let lyric = await getLyric(id);
             // console.log(lyric)
 
             return fetch("https://pl-fe.cn/cloud-music-api/song/detail?ids=" + id).then(function(res){return res.json()}).then(function(data){
-              fetch("https://pl-fe.cn/cloud-music-api/song/url?id=" + id).then(function (res) { return res.json() }).then(songs => {
-                console.log('songs', songs)
+           console.log(111111111111111111,'https://music.163.com/song/media/outer/url?id='+id+'.mp3')
             let obj = {
               name: data.songs[0].name,
               artist: data.songs[0].ar.map(function (ar) { return ar.name }).join(','),
               poster: data.songs[0].al.picUrl,
               lyric: lyric.lyric,
               sublyric: lyric.tlyric,
-              src: songs.data[0].url
+              src: 'https://music.163.com/song/media/outer/url?id='+id+'.mp3',
             }
             this.add(obj);
             return obj;
-          })
             }.bind(this))
           }
 
@@ -194,17 +194,22 @@ module.exports = function (args, contents) {
                     \`
           });
 
-          ${add163.map((a) => {
-    return `window.cplayerList[${JSON.stringify(targetID)}].add163(${JSON.stringify(a)})`
-  }) || ''
-    }
+          ${
+            add163.map((a) => {
+              return `window.cplayerList[${JSON.stringify(
+                targetID
+              )}].add163(${JSON.stringify(a)})`;
+            }) || ""
+          }
 
           let player = window.cplayerList[${JSON.stringify(targetID)}]
           player.to(1)
           player.remove(player.playlist[0])
         }
         
-        if (typeof window.cplayer === 'undefined' && !document.getElementById(${JSON.stringify(scriptID)})) {
+        if (typeof window.cplayer === 'undefined' && !document.getElementById(${JSON.stringify(
+          scriptID
+        )})) {
           var js = document.createElement("script");
           js.src = 'https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js';
           js.id = ${JSON.stringify(scriptID)};
@@ -215,4 +220,4 @@ module.exports = function (args, contents) {
         }
       })()
     </script>`;
-}
+};
