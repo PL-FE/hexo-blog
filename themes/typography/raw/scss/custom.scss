@@ -20,8 +20,8 @@ body {
   color: #606975;
   font-weight: 400;
   .site-title * {
-    font-family: 'Noto Serif SC', 'HiraMinProN-W6', 'Source Han Serif CN',
-      'Source Han Serif SC', 'Source Han Serif TC', serif;
+    font-family: "Noto Serif SC", "HiraMinProN-W6", "Source Han Serif CN",
+      "Source Han Serif SC", "Source Han Serif TC", serif;
   }
 }
 
@@ -50,12 +50,12 @@ body {
   }
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   font-size: 14px !important;
 }
 
-a:not[data=''] {
+a:not[data=""] {
   padding: 4px 2px 2px;
   &.headerlink {
     padding: 0;
@@ -70,13 +70,13 @@ h5,
 h6,
 b,
 strong {
-  font-family: 'Josefin Sans SemiBold', -apple-system, BlinkMacSystemFont,
-    'Helvetica Neue', 'PingFang SC', "'Hiragino Sans GB", STHeiti,
-    'Microsoft Yahei', 'Source Han Sans SC', 'Noto Sans CJK SC',
-    'WenQuanYi Micro Hei', Arial, Verdana, sans-serif;
+  font-family: "Josefin Sans SemiBold", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "PingFang SC", "'Hiragino Sans GB", STHeiti,
+    "Microsoft Yahei", "Source Han Sans SC", "Noto Sans CJK SC",
+    "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
 }
 
-@import 'nprogress.scss';
+@import "nprogress.scss";
 #nprogress .bar {
   background: #97dffd;
 }
@@ -155,7 +155,7 @@ strong {
     animation-direction: alternate;
   }
   &::before {
-    content: '\f05a  啊哦，这张图片加载失败了… ('attr(alt) ')';
+    content: "\f05a  啊哦，这张图片加载失败了… ("attr(alt) ")";
     font-family: FontAwesome;
     font-size: 16px;
     line-height: 40px;
@@ -184,8 +184,8 @@ strong {
 
 /*The 'target="_blank"' link use alias cursor*/
 
-a[target='_blank'],
-a[target='_blank'] img {
+a[target="_blank"],
+a[target="_blank"] img {
   cursor: alias;
 }
 
@@ -255,7 +255,7 @@ video::-webkit-media-controls-panel {
 }
 
 @media (min-width: 768px) {
-  a[target='_blank'] {
+  a[target="_blank"] {
     position: relative;
     &:hover::before {
       color: #404d5b;
@@ -269,7 +269,7 @@ video::-webkit-media-controls-panel {
     &::before {
       font-size: 10px;
       font-weight: 600;
-      content: '\f08e  'attr(href);
+      content: "\f08e  "attr(href);
       font-family: FontAwesome;
       position: absolute;
       top: -50%;
@@ -297,101 +297,101 @@ video::-webkit-media-controls-panel {
 /* josefin-sans-300normal - latin */
 
 @font-face {
-  font-family: 'Josefin Sans Light';
+  font-family: "Josefin Sans Light";
   font-style: normal;
   font-display: swap;
   font-weight: 300;
-  src: local('Josefin Sans Light'), local('Josefin Sans-Light'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300.woff2')
-      format('woff2'),
+  src: local("Josefin Sans Light"), local("Josefin Sans-Light"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
 /* josefin-sans-300italic - latin */
 
 @font-face {
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
   font-style: italic;
   font-display: swap;
   font-weight: 300;
-  src: local('Josefin Sans Light italic'), local('Josefin Sans-Lightitalic'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300italic.woff2')
-      format('woff2'),
+  src: local("Josefin Sans Light italic"), local("Josefin Sans-Lightitalic"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300italic.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300italic.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-300italic.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
 /* josefin-sans-400normal - latin */
 
 @font-face {
-  font-family: 'Josefin Sans Regular';
+  font-family: "Josefin Sans Regular";
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: local('Josefin Sans Regular'), local('Josefin Sans-Regular'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400.woff2')
-      format('woff2'),
+  src: local("Josefin Sans Regular"), local("Josefin Sans-Regular"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
 /* josefin-sans-400italic - latin */
 
 @font-face {
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
   font-style: italic;
   font-display: swap;
   font-weight: 400;
-  src: local('Josefin Sans Regular italic'), local('Josefin Sans-Regularitalic'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400italic.woff2')
-      format('woff2'),
+  src: local("Josefin Sans Regular italic"), local("Josefin Sans-Regularitalic"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400italic.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400italic.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-400italic.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
 /* josefin-sans-600normal - latin */
 
 @font-face {
-  font-family: 'Josefin Sans SemiBold';
+  font-family: "Josefin Sans SemiBold";
   font-style: normal;
   font-display: swap;
   font-weight: 600;
-  src: local('Josefin Sans SemiBold'), local('Josefin Sans-SemiBold'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600.woff2')
-      format('woff2'),
+  src: local("Josefin Sans SemiBold"), local("Josefin Sans-SemiBold"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
 /* josefin-sans-600italic - latin */
 
 @font-face {
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
   font-style: italic;
   font-display: swap;
   font-weight: 600;
-  src: local('Josefin Sans SemiBold italic'),
-    local('Josefin Sans-SemiBolditalic'),
-    url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600italic.woff2')
-      format('woff2'),
+  src: local("Josefin Sans SemiBold italic"),
+    local("Josefin Sans-SemiBolditalic"),
+    url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600italic.woff2")
+      format("woff2"),
     /* Super Modern Browsers */
-      url('//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600italic.woff')
-      format('woff');
+      url("//cdn.jsdelivr.net/npm/typeface-josefin-sans/files/josefin-sans-latin-600italic.woff")
+      format("woff");
   /* Modern Browsers */
 }
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700&display=swap&subset=chinese-simplified');
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700&display=swap&subset=chinese-simplified");
 // @import 'prism-theme.scss';
 @media (max-width: 768px) {
   body {
@@ -614,5 +614,85 @@ c-player .cp-next-button {
   c-player .cp-list-icon {
     height: 1.54167em;
     width: 1.54167em;
+  }
+}
+
+.css-resize {
+  .column-left {
+    height: 400px;
+    background-color: #fff;
+    position: relative;
+    float: left;
+  }
+
+  .column-right {
+    height: 400px;
+    padding: 16px;
+    background-color: #eee;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .resize-save {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+    overflow-x: hidden;
+  }
+
+  /* 拖拽线 */
+  .resize-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 2px solid #eee;
+    border-left: 1px solid #bbb;
+    pointer-events: none;
+  }
+
+  .resize-bar {
+    width: 200px;
+    height: inherit;
+    resize: horizontal;
+    cursor: ew-resize;
+    cursor: col-resize;
+    opacity: 0;
+    overflow: scroll;
+    /* 最大最小宽度 */
+    min-width: 200px;
+    max-width: 500px;
+  }
+
+  .resize-bar:hover ~ .resize-line,
+  .resize-bar:active ~ .resize-line {
+    border-left: 1px dashed skyblue;
+  }
+
+  /* 滚动条与容器一样高 */
+  .resize-bar::-webkit-scrollbar {
+    width: 100px;
+    height: inherit;
+  }
+
+  /* 用来适配火狐 */
+  /* Firefox只有下面一小块区域可以拉伸 */
+  @supports (-moz-user-select: none) {
+    .resize-bar:hover ~ .resize-line::after,
+    .resize-bar:active ~ .resize-line::after {
+      content: "<=>";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      bottom: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  .resize-bar.show-bar {
+    opacity: 1;
   }
 }
