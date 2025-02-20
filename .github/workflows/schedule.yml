@@ -1,21 +1,35 @@
-name: Update Blog
-on:
-  push:
-    branches:
-      - master
-  # schedule:
-  #   - cron: '0 0 * * *'
-
+name: CI/CD
+# 触发条件为 push
+on: [push] # 执行时机的
+# 任务
 jobs:
-  build:
-    runs-on: windows-latest
+  test:
+    # 运行的环境
+    runs-on: ubuntu-latest
+    # 步骤
     steps:
-      - uses: actions/checkout@v2
-      - name: npm install 安装依赖
-        run: npm i
-      - name: npm run all 生成发布
-        run: npm run all
-        env:
-          HOST: ${{ secrets.HOST }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          REMOTEDIR: ${{ secrets.REMOTEDIR }}
+      - uses: actions/checkout@v2 # git pull
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - name: 打包镜像, 上传 Docker Hub
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
+          docker build -t hexo-blog-image  .
+          docker tag hexo-blog-image registry.cn-hangzhou.aliyuncs.com/pengliang/hexo-blog:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/pengliang/hexo-blog:latest
+
+      - name: 登录服务器, 执行脚本
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
+            docker stop hexo-blog || true
+            docker rm hexo-blog || true
+            docker rmi registry.cn-hangzhou.aliyuncs.com/pengliang/hexo-blog:latest || true
+            docker pull registry.cn-hangzhou.aliyuncs.com/pengliang/hexo-blog:latest
+            docker run -d -p 10004:80 --name hexo-blog registry.cn-hangzhou.aliyuncs.com/pengliang/hexo-blog:latest
