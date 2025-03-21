@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI/CD博客
 # 触发条件为 push
 on: [push] # 执行时机的
 # 任务
